@@ -1,6 +1,6 @@
 ---
 name: CPAN-Porters
-version: 0.01
+version: 0.02
 author:
   - 'This document is maintained by Gabor Szabo <gabor@pti.co.il>'
 abstract: Description on how to created binary packages from CPAN distributions
@@ -12,7 +12,7 @@ build_requires:
 provides:
   CPAN::Porters:
     file: lib/CPAN/Porters.pm
-    version: 0.01
+    version: 0.02
 generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html

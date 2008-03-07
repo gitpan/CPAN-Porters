@@ -2,7 +2,7 @@ package CPAN::Porters;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 1;
 
@@ -101,6 +101,85 @@ Requirements for inclusion or upgrade
 =back
 
 
+=head1 Guidelines for module authors
+
+In order to make packaging of CPAN modules for the various distros easier
+module authors should create and package their module adhering to some
+standards. Following is a wish-list created by the Debian Perl module maintainers:
+
+=over 4
+
+=item * Sane version numbering
+
+While having the version in a uniform way might be nice, 
+it would be already helpful if one module used a consistent scheme.
+
+That is stick try to stick to the whatever version numbering scheme you 
+have started.
+
+"We have way too many modules where we have to do {d,u}versionmangling 
+because they switch from x.yyyy to x.yy and
+x.yy.zz or stuff like that (and we try to add 00$ or strip it or
+divide .xxxx into .xx.yy or something like that)."
+
+TODO: list a few reasonable scheme here:
+
+ \d+\.\d\d(_\d\d)?
+
+=item * Copyrights/licensing
+
+Ideally each and every file in given CPAN distribution should have
+clearly stated copyright and license information. AUTHORS/CHANGES (if
+properly filled) can be used as a source of guessing, but I think
+guessing about legal stuff is nothing we want daily.
+
+=item *
+
+No interactive prompting from Makefile.PL or other parts of the build
+system without corresponding (and documented!) ways of setting the same
+parameters automatically.
+
+=item *
+
+no network access needed for building and testing (or an
+easy and documented way to turn network tests off).
+
+=item *
+
+Please use one of the standard Perl module build packages if at all
+possible.  (This probably goes without saying.)
+
+=item *
+
+POD documentation for modules should be structured as described in the
+pod2man man page.  In particular, the NAME section and its content is
+mandatory.  Otherwise, one doesn't get a valid man page.
+
+Make sure your POD documentation makes sense when translated with
+pod2man. I went several times, i.e., over all of PDF::API2's manpages
+because they used "=head1 PDF::API2::Some::Thing" instead of "=head1 NAME".
+Those bugs take a _lot_ of time to properly patch!
+
+POD is not just to be used by perldoc.
+
+=item * 
+
+Please don't ship generated Makefiles etc.
+
+=item *
+
+Don't use conditions in tests that test for the existence of author
+specic files or settings (" unless -d '.svn'" or "unless $username eq
+'timbo'")
+
+Specifically, don't do this unless that's being used as a criteria for
+skipping a test that's really meaningless outside of the author's
+environment.  (I do have a few tests in modules that depend on local
+infrastructure to run and hence are skipped if they're not run by me.)
+ 
+=back
+
+
 =head1 Distributions
 
 For our purposes a distribution is one if the Linux (or BSD) distributions with
@@ -184,6 +263,13 @@ system of ActiveState.
 =head2 Strawberry and Vanilla
 
 L<http://win32.perl.org/>
+
+=head2 Sun Solaris
+
+=head2 IBM AIX
+
+=head2 HP-UX
+
 
 =head1 TODO
 

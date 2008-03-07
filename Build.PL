@@ -5,7 +5,7 @@ use Module::Build;
 my $builder = Module::Build->new(
     module_name         => 'CPAN::Porters',
     license             => 'perl',
-dist_abstract => "Description on how to created binary packages from CPAN distributions",
+    dist_abstract       => "Description on how to created binary packages from CPAN distributions",
     create_makefile_pl  => 'traditional',
     create_readme       => 1,
     requires            => {
