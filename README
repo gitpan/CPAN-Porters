@@ -80,8 +80,10 @@ Guidelines for inclusion
 Guidelines for module authors
     In order to make packaging of CPAN modules for the various distros
     easier module authors should create and package their module adhering to
-    some standards. Following is a wish-list created by the Debian Perl
+    some standards. Following is a wishlist created by the Debian Perl
     module maintainers:
+    <http://people.debian.org/~terpstra/message/20080304.104744.f5ca7c1c.en.
+    html>
 
     * Sane version numbering
         While having the version in a uniform way might be nice, it would be
@@ -105,17 +107,21 @@ Guidelines for module authors
         (if properly filled) can be used as a source of guessing, but I
         think guessing about legal stuff is nothing we want daily.
 
-    *   No interactive prompting from Makefile.PL or other parts of the
+    * No interactive prompting during installation
+        No interactive prompting from Makefile.PL or other parts of the
         build system without corresponding (and documented!) ways of setting
         the same parameters automatically.
 
-    *   no network access needed for building and testing (or an easy and
+    * No network access during build
+        no network access needed for building and testing (or an easy and
         documented way to turn network tests off).
 
-    *   Please use one of the standard Perl module build packages if at all
+    * Use standar packaging systems
+        Please use one of the standard Perl module build packages if at all
         possible. (This probably goes without saying.)
 
-    *   POD documentation for modules should be structured as described in
+    * Structured POD
+        POD documentation for modules should be structured as described in
         the pod2man man page. In particular, the NAME section and its
         content is mandatory. Otherwise, one doesn't get a valid man page.
 
@@ -126,10 +132,12 @@ Guidelines for module authors
 
         POD is not just to be used by perldoc.
 
-    *   Please don't ship generated Makefiles etc.
+    * Don't ship Makefiles
+        Please don't ship generated Makefiles etc.
 
-    *   Don't use conditions in tests that test for the existence of author
-        specic files or settings (" unless -d '.svn'" or "unless $username
+    * Testing
+        Don't use conditions in tests that test for the existence of author
+        specfic files or settings (" unless -d '.svn'" or "unless $username
         eq 'timbo'")
 
         Specifically, don't do this unless that's being used as a criteria
@@ -187,21 +195,43 @@ Distributions
     More details needed.
 
     For now look at <http://fedoraproject.org/> and
+
     <http://fedoraproject.org/wiki/PackageMaintainers>
+
+    <http://fedoraproject.org/wiki/SIGs/Perl?action=show&redirect=Perl>
+
+    <http://www.redhat.com/mailman/listinfo/fedora-perl-devel-list>
+
+    And the wish-list so far:
+
+    * Clearly and properly copyright your works.
+    * Always apply a widely used and commonly acknowledged license to your
+    works.
 
   RedHat
   Mandriva
     MDV::Distribconf
 
+    <http://wiki.mandriva.com/en/Policies/Perl>
+
   SuSE
+  OpenSUSE
+    <http://en.opensuse.org/SUSE_Build_Tutorial#Perl_Packages>
+
   Gentoo
     As in Gentoo the standard way is to install everything from source and
     they have some way to channel all CPAN via their system for Gentoo this
     whole issue is probably not relevant.
 
   FreeBSD
+    <http://people.freebsd.org/~tom/portpm/>
+
   NetBSD
+    <http://www.netbsd.org/docs/pkgsrc/creating.html>
+
   OpenBSD
+    <http://www.openbsd.org/faq/faq15.html>
+
   ActivePerl
     ActivePerl is distribute by ActiveState <http://www.activestate.com/>
     Its list of packages far exceeds of any of the other distributions

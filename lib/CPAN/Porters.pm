@@ -2,7 +2,7 @@ package CPAN::Porters;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 1;
 
@@ -51,7 +51,6 @@ Perl QA L<http://qa.perl.org> and the mailing list L<http://lists.cpan.org/showl
 CPAN Testers L<http://testers.cpan.org/>
 
 CPAN Discuss http://lists.cpan.org/showlist.cgi?name=cpan-discuss
-
 
 
 =head1 Guidelines for inclusion
@@ -105,7 +104,8 @@ Requirements for inclusion or upgrade
 
 In order to make packaging of CPAN modules for the various distros easier
 module authors should create and package their module adhering to some
-standards. Following is a wish-list created by the Debian Perl module maintainers:
+standards. Following is a wishlist created by the Debian Perl module maintainers:
+L<http://people.debian.org/~terpstra/message/20080304.104744.f5ca7c1c.en.html>
 
 =over 4
 
@@ -133,23 +133,23 @@ clearly stated copyright and license information. AUTHORS/CHANGES (if
 properly filled) can be used as a source of guessing, but I think
 guessing about legal stuff is nothing we want daily.
 
-=item *
+=item * No interactive prompting during installation
 
 No interactive prompting from Makefile.PL or other parts of the build
 system without corresponding (and documented!) ways of setting the same
 parameters automatically.
 
-=item *
+=item * No network access during build
 
 no network access needed for building and testing (or an
 easy and documented way to turn network tests off).
 
-=item *
+=item * Use standar packaging systems
 
 Please use one of the standard Perl module build packages if at all
 possible.  (This probably goes without saying.)
 
-=item *
+=item * Structured POD
 
 POD documentation for modules should be structured as described in the
 pod2man man page.  In particular, the NAME section and its content is
@@ -162,14 +162,14 @@ Those bugs take a _lot_ of time to properly patch!
 
 POD is not just to be used by perldoc.
 
-=item * 
+=item * Don't ship Makefiles
 
 Please don't ship generated Makefiles etc.
 
-=item *
+=item * Testing
 
 Don't use conditions in tests that test for the existence of author
-specic files or settings (" unless -d '.svn'" or "unless $username eq
+specfic files or settings (" unless -d '.svn'" or "unless $username eq
 'timbo'")
 
 Specifically, don't do this unless that's being used as a criteria for
@@ -232,8 +232,22 @@ More details needed.
 
 For now look at 
 L<http://fedoraproject.org/> and 
+
 L<http://fedoraproject.org/wiki/PackageMaintainers>
 
+L<http://fedoraproject.org/wiki/SIGs/Perl?action=show&redirect=Perl>
+
+L<http://www.redhat.com/mailman/listinfo/fedora-perl-devel-list>
+
+And the wish-list so far:
+
+=over 4
+
+=item * Clearly and properly copyright your works.
+
+=item * Always apply a widely used and commonly acknowledged license to your works.
+
+=back
 
 =head2 RedHat
 
@@ -241,7 +255,14 @@ L<http://fedoraproject.org/wiki/PackageMaintainers>
 
 L<MDV::Distribconf>
 
+L<http://wiki.mandriva.com/en/Policies/Perl>
+
 =head2 SuSE
+
+
+=head2 OpenSUSE
+
+L<http://en.opensuse.org/SUSE_Build_Tutorial#Perl_Packages>
 
 =head2 Gentoo
 
@@ -250,9 +271,15 @@ channel all CPAN via their system for Gentoo this whole issue is probably not re
 
 =head2 FreeBSD
 
+L<http://people.freebsd.org/~tom/portpm/>
+
 =head2 NetBSD
 
+L<http://www.netbsd.org/docs/pkgsrc/creating.html>
+
 =head2 OpenBSD
+
+L<http://www.openbsd.org/faq/faq15.html>
 
 =head2 ActivePerl
 
